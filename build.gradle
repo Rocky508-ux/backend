@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    // 📢 修正點 1：使用穩定的 Spring Boot 3.3.0
+    id 'org.springframework.boot' version '3.3.0' 
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.rctoyshop'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+// 📢 修正點 2：移除重複的 dependencies {} 區塊，將所有依賴統一在此處
+dependencies {
+    
+    // 核心 Spring Boot 與 Web 模組
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' // 您的資料庫模組
+    
+    
+    
+    // RESTful API 支援 (WebMVC 包含在 Web starter 內)
+    // 您的原始依賴已被整合或替換：
+    // implementation 'org.springframework.boot:spring-boot-starter-webmvc' 
+    
+    // Swagger/OpenAPI UI 依賴
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+    
+    // Actuator (保持不變)
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    
+    // 資料庫驅動 (您使用的是 MySQL)
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    
+    // Lombok 模組
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok' 
+    
+    // 開發工具 (保持不變)
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    
+    // 測試依賴 (簡化並保持基本功能)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
