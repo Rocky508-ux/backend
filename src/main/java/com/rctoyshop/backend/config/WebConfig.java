@@ -9,12 +9,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        
-        // 【修正點】: 這是保持不變的 Web 訪問路徑
-        registry.addResourceHandler("/images/**")
-                // 【修正點】: 這是實際對應的本地路徑
-                // 確保您的圖片檔案直接位於這個目錄下，例如 C:\...\image\new_figure.jpg
-                .addResourceLocations("file:///C:/rc_toy_shop/backend/build/resources/image/");
+        // 【修正點】: 將路徑 mapping 改為單數 /image/** 以配合 data.sql 的寫法
+        registry.addResourceHandler("/image/**")
+                .addResourceLocations("classpath:/static/image/");
     }
 }
 // 📢 注意：WebConfig 保持不變，因為我們希望 Web Path 還是 /images/**
