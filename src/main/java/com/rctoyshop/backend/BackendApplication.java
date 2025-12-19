@@ -10,7 +10,6 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-	// ★★★ DEBUG: 啟動時列印所有使用者資料 ★★★
 	@org.springframework.context.annotation.Bean
 	public org.springframework.boot.CommandLineRunner commandLineRunner(
 			com.rctoyshop.backend.repository.UserRepository userRepository) {

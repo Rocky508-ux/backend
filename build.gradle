@@ -27,35 +27,36 @@ repositories {
 
 // 📢 修正點 2：移除重複的 dependencies {} 區塊，將所有依賴統一在此處
 dependencies {
-    
     // 核心 Spring Boot 與 Web 模組
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' // 您的資料庫模組
-    
-    
-    
-    // RESTful API 支援 (WebMVC 包含在 Web starter 內)
-    // 您的原始依賴已被整合或替換：
-    // implementation 'org.springframework.boot:spring-boot-starter-webmvc' 
-    
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+    // Security & JWT
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
     // Swagger/OpenAPI UI 依賴
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
     
-    // Actuator (保持不變)
+    // Actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     
-    // 資料庫驅動 (您使用的是 MySQL)
+    // 資料庫驅動
     runtimeOnly 'com.mysql:mysql-connector-j'
     
-    // Lombok 模組
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok' 
     
-    // 開發工具 (保持不變)
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // 開發工具
+    // devtools removed to prevent restart loop
+
     
-    // 測試依賴 (簡化並保持基本功能)
+    // 測試依賴
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {

@@ -36,19 +36,6 @@ public class ProductController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    /**
-     * POST /api/products : 新增商品 (在真實專案中，應限制只有 ADMIN 可用)
-     * 請求體 (Request Body) 應包含 Product JSON 物件 (包括圖片清單)
-     */
-    @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        try {
-            Product newProduct = productService.createProduct(product);
-            // HTTP 201 CREATED
-            return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
-        } catch (Exception e) {
-            // 處理例如 ID 衝突或資料驗證失敗
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST); 
-        }
-    }
+    // Admin methods moved to AdminProductController
+    // Only public read methods remain here
 }

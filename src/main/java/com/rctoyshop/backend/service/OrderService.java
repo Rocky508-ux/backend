@@ -51,6 +51,10 @@ public class OrderService {
                 product.setStock(product.getStock() - item.getQuantity());
                 productRepository.save(product);
             }
+
+            // 1.5 計算訂單總件數
+            int totalItems = order.getItems().stream().mapToInt(OrderItem::getQuantity).sum();
+            order.setTotalItems(totalItems);
         }
 
         // 2. 儲存 Order 主表 (因為是 Aggregate Root，它會自動 Cascade Save 所有的 Items)
@@ -78,13 +82,12 @@ public class OrderService {
      */
     @Transactional
     public Optional<Order> updateOrderStatus(String id, String newStatus) {
-        Optional<Order> orderOptional = orderRepository.findById(id);
+        // 使用直接更新 SQL，避免載入整個 Aggregate Root 導致的 Persistable 問題
+        int rows = orderRepository.updateAttributes(id, newStatus);
 
-        if (orderOptional.isPresent()) {
-            Order order = orderOptional.get();
-            order.setStatus(newStatus);
-            Order updated = orderRepository.save(order);
-            return Optional.of(updated);
+        if (rows > 0) {
+            // 更新成功後，重新查詢以返回最新狀態 (雖非必要，但保持 API 行為一致)
+            return orderRepository.findById(id);
         }
         return Optional.empty();
     }

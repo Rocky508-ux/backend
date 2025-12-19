@@ -26,6 +26,9 @@ public class Order implements Persistable<String> { // 實作 Persistable
     @Column("total_amount")
     private Integer totalAmount;
 
+    @Column("total_items")
+    private Integer totalItems;
+
     private String status;
 
     // 3. 日期：使用 Java 8 的 LocalDateTime，並顯式映射

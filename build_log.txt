@@ -1,0 +1,29 @@
+
+> Task :compileJava FAILED
+C:\rc_toy_shop\backend\src\main\java\com\rctoyshop\backend\controller\UserController.java:35: error: cannot find symbol
+        List<User> users = userService.findAllUsers();
+                                      ^
+  symbol:   method findAllUsers()
+  location: variable userService of type UserService
+1 error
+
+[Incubating] Problems report is available at: file:///C:/rc_toy_shop/backend/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\rc_toy_shop\backend\src\main\java\com\rctoyshop\backend\controller\UserController.java:35: error: cannot find symbol
+          List<User> users = userService.findAllUsers();
+                                        ^
+    symbol:   method findAllUsers()
+    location: variable userService of type UserService
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+1 actionable task: 1 executed

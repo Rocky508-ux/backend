@@ -1,11 +1,11 @@
 -- (1) 使用者
-INSERT INTO users (name, email, password, phone, birthday, role, status) VALUES 
-('Admin', 'admin@rc.com', 'admin123', '0900000000', '2000-01-01', 'ADMIN', 'ACTIVE'),
-('User', 'user@example.com', '123456', '0912345678', '1995-05-05', 'USER', 'ACTIVE'),
-('User2', 'user2@example.com', '123456', '0987654321', '1998-08-08', 'USER', 'ACTIVE');
+INSERT IGNORE INTO users (email, password, name, role, status) VALUES 
+('admin@rc.com', 'admin123', 'Admin User', 'ADMIN', 'active'), -- pass: admin123
+('user@example.com', 'password', 'Normal User', 'USER', 'active'), -- pass: 123456
+('user2@example.com', '123456', 'User2', 'USER', 'active'); -- pass: 123456
 
 -- (2) 商品
-INSERT INTO products (id, name, description, price, stock, category_id, tag, type, studio, scale, dimensions, material, estimated_arrival) VALUES
+INSERT IGNORE INTO products (id, name, description, price, stock, category_id, tag, type, studio, scale, dimensions, material, estimated_arrival) VALUES
 ('gundam-rx-78-2', '鋼彈 RX-78-2 Ver.Ka', '由知名設計師 Katoki Hajime 監修，追求極致的機械結構與可動性。', 3200, 10, 'gundam', 'new', 'model', 'Bandai Namco', '1/100 (MG)', 'H:18cm', 'PS, ABS, PVC', '現貨'),
 ('dbz-broly', '七龍珠超 布羅利 (Broly) 傳說超級賽亞人', '傳說中的超級賽亞人，擁有無窮無盡的破壞力。', 18800, 3, 'dbz', '預購', 'figure', 'Deyin Studio', '1/6', 'H:45cm W:38cm D:30cm', '進口樹脂 + PU', '2025年 第3季'),
 ('one-piece-luffy', 'ONE PIECE 魯夫', '草帽海賊團的船長，夢想是找到傳說中的大秘寶「ONE PIECE」。', 2200, 20, 'onepiece', 'new', 'figure', 'Banpresto', 'N/A', 'H:16cm', 'PVC', '現貨'),
@@ -25,13 +25,13 @@ INSERT INTO product_images (product_id, image_path, is_main) VALUES
 ('demon-slayer-tanjiro', '/image/drass3-3.jpg', TRUE);
 
 -- (4) 訂單 (Orders)
-INSERT INTO orders (id, user_id, total_amount, status, shipping_address) VALUES 
-('ORD-20231212-001', 2, 5400, 'COMPLETED', '台北市信義區市府路45號'),
-('ORD-20231212-002', 3, 18800, 'PENDING', '台中市西區台灣大道二段'),
-('ORD-NEW-USER', 3, 2800, 'PENDING', '高雄市新興區');
+INSERT IGNORE INTO orders (id, user_id, total_amount, status, shipping_address) VALUES 
+('ORD-20231212-001', 2, 5400, '已送達', '台北市信義區市府路45號'),
+('ORD-20231212-002', 3, 18800, '處理中', '台中市西區台灣大道二段'),
+('ORD-NEW-USER', 3, 2800, '處理中', '高雄市新興區');
 
 -- (5) 訂單明細 (Order Items)
-INSERT INTO order_items (order_id, product_id, product_name, quantity, price) VALUES 
+INSERT IGNORE INTO order_items (order_id, product_id, product_name, quantity, price) VALUES 
 ('ORD-20231212-001', 'gundam-rx-78-2', '鋼彈 RX-78-2 Ver.Ka', 1, 3200),
 ('ORD-20231212-001', 'one-piece-luffy', 'ONE PIECE 魯夫', 1, 2200),
 ('ORD-20231212-002', 'dbz-broly', '七龍珠超 布羅利 (Broly)', 1, 18800),

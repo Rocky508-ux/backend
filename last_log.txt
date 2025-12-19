@@ -1,0 +1,11 @@
+¦r¦ê¿òº|µ²§À¦r¤¸: "¡C
+    + CategoryInfo   
+           : Parser  
+  Error: (:) [], P   
+ arentContainsErr    
+orRecordExceptio    n
+    + FullyQualified 
+   ErrorId : Termin  
+  atorExpectedAtEn   
+ dOfString
+ 

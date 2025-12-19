@@ -1,0 +1,48 @@
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :resolveMainClassName
+
+> Task :bootRun
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.0)
+
+2025-12-18T14:21:32.486+08:00  INFO 43608 --- [backend] [  restartedMain] c.rctoyshop.backend.BackendApplication   : Starting BackendApplication using Java 21.0.9 with PID 43608 (C:\rc_toy_shop\backend\build\classes\java\main started by Rocky in C:\rc_toy_shop\backend)
+2025-12-18T14:21:32.488+08:00  INFO 43608 --- [backend] [  restartedMain] c.rctoyshop.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-18T14:21:32.524+08:00  INFO 43608 --- [backend] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-18T14:21:32.524+08:00  INFO 43608 --- [backend] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-18T14:21:33.099+08:00  INFO 43608 --- [backend] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-12-18T14:21:33.141+08:00  INFO 43608 --- [backend] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 5 JDBC repository interfaces.
+2025-12-18T14:21:33.447+08:00  INFO 43608 --- [backend] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-18T14:21:33.455+08:00  INFO 43608 --- [backend] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-18T14:21:33.455+08:00  INFO 43608 --- [backend] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2025-12-18T14:21:33.488+08:00  INFO 43608 --- [backend] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-18T14:21:33.489+08:00  INFO 43608 --- [backend] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 964 ms
+2025-12-18T14:21:33.579+08:00  INFO 43608 --- [backend] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-18T14:21:33.668+08:00  INFO 43608 --- [backend] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22f9931
+2025-12-18T14:21:33.669+08:00  INFO 43608 --- [backend] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-18T14:21:34.070+08:00  INFO 43608 --- [backend] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-18T14:21:34.146+08:00  INFO 43608 --- [backend] [  restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-18T14:21:34.147+08:00  WARN 43608 --- [backend] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-18T14:21:34.250+08:00  INFO 43608 --- [backend] [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-12-18T14:21:34.371+08:00  INFO 43608 --- [backend] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-12-18T14:21:34.398+08:00  INFO 43608 --- [backend] [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@15124618, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@600f0b17, org.springframework.security.web.context.SecurityContextHolderFilter@124342ea, org.springframework.security.web.header.HeaderWriterFilter@68d31321, org.springframework.web.filter.CorsFilter@2a2f9c7d, org.springframework.security.web.authentication.logout.LogoutFilter@5bc429c6, com.rctoyshop.backend.filter.JwtAuthenticationFilter@5f7606b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5aa345b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b6fee9b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12e611f8, org.springframework.security.web.session.SessionManagementFilter@4a0d382c, org.springframework.security.web.access.ExceptionTranslationFilter@341488, org.springframework.security.web.access.intercept.AuthorizationFilter@76d0671a]
+2025-12-18T14:21:34.577+08:00  INFO 43608 --- [backend] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-18T14:21:34.584+08:00  INFO 43608 --- [backend] [  restartedMain] c.rctoyshop.backend.BackendApplication   : Started BackendApplication in 2.305 seconds (process running for 2.599)
+================= HASH GENERATION START =================
+GENERATED ADMIN HASH (admin123): $2a$10$aHSkcGcmHPHjzumso.0aMO4mtDyXBfnXvfDj4J7L9EZdIdyQrp5TS
+GENERATED USER HASH (123456): $2a$10$oY5HMJkRn6tdtIVY.5o5.uYWaoQaf7/VoyqVsrzeC616cy0UT5jzC
+================= HASH GENERATION END ===================
+================= DB USER DUMP START =================
+ID: 1, Email: [admin@rc.com], Password: [$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmjSsl.WIP.Yed.i/n2a], Role: ADMIN, Status: ACTIVE
+ID: 2, Email: [user@example.com], Password: [$2a$10$eAccYoNOHEqXve8aIWT8Nu3ueZOC.KkbODy4o.0PevjI8LaWFiy5u], Role: USER, Status: ACTIVE
+ID: 3, Email: [user2@example.com], Password: [$2a$10$eAccYoNOHEqXve8aIWT8Nu3ueZOC.KkbODy4o.0PevjI8LaWFiy5u], Role: USER, Status: ACTIVE
+================= DB USER DUMP END ===================
+要終止批次工作嗎 (Y/N)? 
+^C

@@ -27,16 +27,16 @@ public class OrderController {
         try {
             // Service 處理核心交易邏輯：儲存訂單、儲存明細、扣除庫存
             Order placedOrder = orderService.placeOrder(order);
-            
+
             // HTTP 201 CREATED
             return new ResponseEntity<>(placedOrder, HttpStatus.CREATED);
-            
+
         } catch (IllegalStateException e) {
             // 處理庫存不足等業務異常
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             // 處理其他失敗情況
-            return new ResponseEntity<>("Order placement failed.", HttpStatus.INTERNAL_SERVER_ERROR); 
+            return new ResponseEntity<>("Order placement failed.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -52,4 +52,6 @@ public class OrderController {
         }
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
+
+    // Admin methods moved to AdminOrderController
 }
